@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Timer() {
+export default function CountupTimer() {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
