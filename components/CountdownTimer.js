@@ -22,9 +22,19 @@ export default function CountdownTimer() {
       }, 1000);
     }
 
+    //5秒以内になったら毎秒アラームを鳴らす
+    if (timeLeft <= 5 && timeLeft > 0 && isRunning) {
+      const tick = new Audio("/決定ボタンを押す2.mp3");
+      tick.play();
+    }
+
     //残り時間が0になったら、自動で止める
-    if (timeLeft === 0) {
+    if (timeLeft === 0 && isRunning) {
       setIsRunning(false);
+
+      //アラームを鳴らす
+      const alarm = new Audio("/ビープ音（ポーン）.mp3"); // app/publicにmp3は保存されている。
+      alarm.play(); //alarm.playで音が鳴る。
     }
 
     return () => clearInterval(interval);

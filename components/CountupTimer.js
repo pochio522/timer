@@ -21,11 +21,12 @@ export default function CountupTimer() {
 
   const formatTime = (s) => {
     //この小文字のsは仮引数 32行目に用いられている
-    const minutes = Math.floor(s / 60);
+    const ours = Math.floor(s / 3600);
+    const minutes = Math.floor((s % 3600) / 60);
     const secs = s % 60;
-    return `${minutes.toString().padStart(2, "0")}:${secs
+    return `${ours.toString().padStart(2, "0")}:${minutes
       .toString()
-      .padStart(2, "0")}`;
+      .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   return (
